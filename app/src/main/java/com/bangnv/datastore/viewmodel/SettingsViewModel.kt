@@ -2,6 +2,7 @@ package com.bangnv.datastore.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bangnv.datastore.common.ThemeMode
 import com.bangnv.datastore.model.dto.UserPreferences
 import com.bangnv.datastore.model.repository.PreferenceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,9 +24,9 @@ class SettingsViewModel @Inject constructor(
             initialValue = UserPreferences()
         )
 
-    fun updateDarkMode(isDarkMode: Boolean) {
+    fun updateThemeMode(themeMode: ThemeMode) {
         viewModelScope.launch {
-            preferenceRepository.updateDarkMode(isDarkMode)
+            preferenceRepository.updateThemeMode(themeMode)
         }
     }
 

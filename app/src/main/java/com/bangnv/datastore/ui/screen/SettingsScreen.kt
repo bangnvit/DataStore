@@ -45,68 +45,65 @@ fun SettingsScreen(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(
-                text = "Thông tin cá nhân",
-                style = MaterialTheme.typography.titleLarge
-            )
-
-            OutlinedTextField(
-                value = usernameInput,
-                onValueChange = { usernameInput = it },
-                label = { Text("Tên người dùng") },
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            Button(
-                onClick = { viewModel.updateUsername(usernameInput) },
-                modifier = Modifier.align(Alignment.End)
-            ) {
-                Text("Lưu tên người dùng")
-            }
-
-            Divider(modifier = Modifier.padding(vertical = 8.dp))
-
-            Text(
-                text = "Giao diện",
-                style = MaterialTheme.typography.titleLarge
-            )
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = "Chế độ tối",
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.weight(1f)
-                )
-                Switch(
-                    checked = userPreferences.isDarkMode,
-                    onCheckedChange = { viewModel.updateDarkMode(it) }
-                )
-            }
-
-            Divider(modifier = Modifier.padding(vertical = 8.dp))
-
-            Text(
-                text = "Thông báo",
-                style = MaterialTheme.typography.titleLarge
-            )
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = "Bật thông báo",
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.weight(1f)
-                )
-                Switch(
-                    checked = userPreferences.notificationsEnabled,
-                    onCheckedChange = { viewModel.updateNotificationsEnabled(it) }
-                )
-            }
+//            Text(
+//                text = "Thông tin cá nhân",
+//                style = MaterialTheme.typography.titleLarge
+//            )
+//
+//            OutlinedTextField(
+//                value = usernameInput,
+//                onValueChange = { usernameInput = it },
+//                label = { Text("Tên người dùng") },
+//                modifier = Modifier.fillMaxWidth()
+//            )
+//
+//            Button(
+//                onClick = { viewModel.updateUsername(usernameInput) },
+//                modifier = Modifier.align(Alignment.End)
+//            ) {
+//                Text("Lưu tên người dùng")
+//            }
+//
+//            Text(
+//                text = "Giao diện",
+//                style = MaterialTheme.typography.titleLarge
+//            )
+//
+//            Row(
+//                verticalAlignment = Alignment.CenterVertically,
+//                modifier = Modifier.fillMaxWidth()
+//            ) {
+//                Text(
+//                    text = "Chế độ tối",
+//                    style = MaterialTheme.typography.bodyLarge,
+//                    modifier = Modifier.weight(1f)
+//                )
+//                Switch(
+//                    checked = userPreferences.isDarkMode,
+//                    onCheckedChange = { viewModel.updateThemeMode(it) }
+//                )
+//            }
+//
+//
+//            Text(
+//                text = "Thông báo",
+//                style = MaterialTheme.typography.titleLarge
+//            )
+//
+//            Row(
+//                verticalAlignment = Alignment.CenterVertically,
+//                modifier = Modifier.fillMaxWidth()
+//            ) {
+//                Text(
+//                    text = "Bật thông báo",
+//                    style = MaterialTheme.typography.bodyLarge,
+//                    modifier = Modifier.weight(1f)
+//                )
+//                Switch(
+//                    checked = userPreferences.notificationsEnabled,
+//                    onCheckedChange = { viewModel.updateNotificationsEnabled(it) }
+//                )
+//            }
         }
     }
 }
