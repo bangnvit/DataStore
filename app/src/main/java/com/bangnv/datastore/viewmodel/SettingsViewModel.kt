@@ -6,6 +6,7 @@ import com.bangnv.datastore.common.ThemeMode
 import com.bangnv.datastore.model.dto.UserPreferences
 import com.bangnv.datastore.model.repository.PreferenceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -23,6 +24,19 @@ class SettingsViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = UserPreferences()
         )
+
+    private val _usernameInput = MutableStateFlow("")
+    val usernameInput: StateFlow<String> = _usernameInput
+
+    fun setUsernameInput(input: String) {
+        _usernameInput.value = input
+    }
+
+    fun canSaveUsername(): Boolean {
+        val input = _usernameInput.value.trim()
+        return input.isNotEmpty() && input != userPreferences.value.username
+    }
+
 
     fun updateThemeMode(themeMode: ThemeMode) {
         viewModelScope.launch {
